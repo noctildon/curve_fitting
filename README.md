@@ -11,8 +11,7 @@
 
 # Description
 
-This gui application allows to linear fit the two dimensional data(in csv, ods, xlsm or xlsx).
-It can show the data as well as the fitting curve in the same window.
+This gui application allows to linear fit the two dimensional data(in csv, ods, xlsm or xlsx), showing the data and the fitting curve in the same window.
 The program can output the plotting and save it.
 It also can show the equation of the fitting curve.
 The central idea of this program is to utilize function **optimize** in Python module **SciPy**.
@@ -23,7 +22,7 @@ For more information about the usage of **optimize** and **SciPy**, check [link]
 
 ## Python modules
 
-The necessary Python modules contain
+The necessary Python modules are
 - PyQt5
 - numpy
 - openpyxl
@@ -58,6 +57,6 @@ But it should work in any OS installed required Python modules.
 
 # To do list
 
-- [ ] freeze the program to into stand-alone executables, also tested on Windows, Linux and MacOS.
-- [ ] do "**TODO**" in call_lin_fit.py
+- [ ] freeze the program into stand-alone executables, also tested on Windows, Linux and MacOS.
+- [ ] add the feature of changing graph propeties(ex. color, width)
 - [ ] add demo gif
