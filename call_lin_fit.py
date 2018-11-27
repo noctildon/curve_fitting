@@ -2,14 +2,12 @@ import sys
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialog
 from ui_lin_fit import Ui_MainWindow  # import UI
-import pyqtgraph as pg  # import plotting module
-import numpy as np  # import computing module
+import pyqtgraph as pg
+import numpy as np
 from scipy import optimize
 from pyexcel_ods import get_data
-# official document of optimize : https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html
 # TODO: add the running symbol showing that the application is running
 # TODO: consider there are some titles in data file
-# TODO: calculate the standard deviation
 # TODO: add the feature of changing graph propeties(ex. color, width)
 # TODO: test some wrong data(ex. empty value or non-number value), i.e., try errors
 # TODO: format the output of the parameters
@@ -35,7 +33,6 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         file_path, _ = QFileDialog.getOpenFileName(
             self, 'Open file', './', "(*.csv *.ods *.xlsm *.xlsx)")
         if file_path:  # check if the file is loaded
-            # file_format = re.search('\.[A-Za-z]+$', file_path).group()  # get file format
             data_read = get_data(file_path)
             x_data = list(data_read.values())[0][0]  # first line of data
             y_data = list(data_read.values())[0][1]  # second line of data
@@ -57,8 +54,12 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         params, params_covariance = optimize.curve_fit(fit_func, x_data, y_data)  # fit the raw data
         plt.plot(x_data, fit_func(x_data, params[0], params[1]),
                  pen=pg.mkPen(color='#333', width=2))  # plot the fitting curve
-        self.show_eq.setText("y = " + str(params[0]) + "x + " + str(params[1]))  # show the fitting curve equation
-        perr = np.sqrt(np.diag(params_covariance))  # standard deviation errors
+        equ = "y = " + "{}" + "x + " + str(params[1]).format(params[0])  # FIXME: format the equation
+        SDEs = np.sqrt(np.diag(params_covariance))  # standard deviation errors, first one is for x, second one is for y
+        x_sd = SDEs[0]  # standard deviation errors of x
+        y_sd = SDEs[1]  # standard deviation errors of y
+        # show the fitting curve equation
+        self.show_eq.setText(equ + "\n" + "standard deviation of x: " + str(x_sd) + "\n" + "standard deviation of y: " + str(y_sd))
 
     @pyqtSlot()
     def clean_all(self):
