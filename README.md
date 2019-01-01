@@ -33,6 +33,8 @@ The necessary Python modules are
 - pyexcel-xlsx
 - pyqtgraph
 - scipy
+- tornado (for freezing the program)
+- pyinstaller (for freezing the program)
 
 
 To install the above Python modules(except PyQt5), one can run
