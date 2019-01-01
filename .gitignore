@@ -1,2 +1,4 @@
 test_fn.py
 __pycache__/
+build/
+*.spec

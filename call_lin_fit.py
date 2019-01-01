@@ -6,6 +6,10 @@ import pyqtgraph as pg
 from numpy import *
 from scipy import optimize
 from pyexcel_ods import get_data
+import pyexcel_io.readers
+import pyexcel_io.writers
+import pyexcel_io.database
+import pyexcel_io.readers.csvr
 
 
 class MyMainWindow(QMainWindow, Ui_MainWindow):
