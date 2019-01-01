@@ -3,7 +3,6 @@
 - [Content](#content)
 - [Description](#description)
 - [Prerequisites(for development)](#prerequisitesfor-development)
-  - [Python modules](#python-modules)
 - [Demonstration](#demonstration)
 - [Compatibility](#compatibility)
 - [To do list](#to-do-list)
@@ -20,7 +19,6 @@ For more information about the usage of **optimize** and **SciPy**, check [link]
 
 # Prerequisites(for development)
 
-## Python modules
 
 The necessary Python modules are
 - PyQt5
@@ -68,9 +66,9 @@ One can use **test_data** to test the function of this program.
 
 The Python source code is only tested in Linux Mint 18.3.
 But it should work in any OS installed required Python modules.
+The stand-alone executable is put in /dist, and it is only tested on Linux Mint 18.3
 
 
 # To do list
 
-- [ ] freeze the program into stand-alone executables, also tested on Windows, Linux and MacOS.
-- [ ] add the feature of changing graph propeties(ex. color, width)
+- [ ] freeze the program into stand-alone executables, also tested on Windows and MacOS.
